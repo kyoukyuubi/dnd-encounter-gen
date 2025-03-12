@@ -35,7 +35,7 @@ def parse_arguments():
     # the lamba types allows for multiple arguments
     parser.add_argument('--environment', type=lambda s: s.split(','), help=env_help)
     parser.add_argument('--level', type=int, help='Which level your party is. Default is 1 and max is 20', default=1)
-    parser.add_argument('--size', type=int, help='What size your party is, default is 4 and max is 6. Going by Xanathas Guide', default=4)
+    parser.add_argument('--size', type=int, help="What size your party is, default is 4 and max is 6. Going by Xanathar's Guide to Everything", default=4)
     parser.add_argument('--plane', type=lambda s: s.split(','), help=plane_help)
 
     # return the args
