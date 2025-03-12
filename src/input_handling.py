@@ -26,7 +26,7 @@ def parse_arguments():
         f"{env_options}"
     )
     plane_help = (
-        "Planes of excistence (comma.separated). Leave empty for any\n"
+        "Planes of existence (comma.separated). Leave empty for any\n"
         "Valid options:\n"
         f"{plane_options}"
     )
