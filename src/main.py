@@ -28,10 +28,10 @@ def main():
     print(f"Name: {random_creature['Name']}")
     print(f"Type: {random_creature['Type']}")
     print(f"Challenge Rating: {random_creature['ChallengeRating']}")
-    print(f"Environment: {random_creature['Environment']}")
+    print(f"Environment: {', '.join(random_creature['Environment'])}")
     # check if plane is not empty, if it isn't print what plane the creature is on
     if random_creature["Plane"] != []:
-        print(f"Plane: {random_creature["Plane"]}")
+        print(f"Plane: {', '.join(random_creature['Plane'])}")
     # a space for formatting
     print(" ")
     print(f"The creature can be found in: {random_creature["Book"]} on page: {random_creature["Page"]}")

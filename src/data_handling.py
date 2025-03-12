@@ -31,7 +31,11 @@ def prepare_creatures(args):
     # set the arg values for env and plane
     environment = args.environment
     plane = args.plane
-    creature_type = (args.type).capitalize()
+    creature_type = args.type
+
+    # check if creature_type is None, if it isn't capitalize it.
+    if creature_type is not None:
+        creature_type = (args.type).capitalize()
 
     # try to load all the creatures, print the error and return if it fails
     try:

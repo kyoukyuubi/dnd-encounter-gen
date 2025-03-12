@@ -23,7 +23,7 @@ def parse_arguments():
     type_options = "\n".join(f" • {type}" for type in valid_types)
 
     # the actual help text, with the env_options
-    # do the same thing for planes
+    # do the same thing for planes and types
     env_help = (
         "Environment types (comma-separated).Leave empty for any\n"
         "Valid options:\n"
@@ -34,6 +34,11 @@ def parse_arguments():
         "Valid options:\n"
         f"{plane_options}"
     )
+    type_help = (
+        "Which type of creature. Leave empty for any\n"
+        "Valid options:\n"
+        f"{type_options}"
+    )
 
     # set the arguments, with the name which type and the help text
     # the lamba types allows for multiple arguments
@@ -41,7 +46,7 @@ def parse_arguments():
     parser.add_argument('--level', type=int, help='Which level your party is. Default is 1 and max is 20', default=1)
     parser.add_argument('--size', type=int, help="What size your party is, default is 4 and max is 6. Going by Xanathar's Guide to Everything", default=4)
     parser.add_argument('--plane', type=lambda s: s.split(','), help=plane_help)
-    parser.add_argument('--type', type=str, help=type_options)
+    parser.add_argument('--type', type=str, help=type_help)
 
     # return the args
     return parser.parse_args()
