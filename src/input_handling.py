@@ -4,7 +4,7 @@ def parse_arguments():
     # set the program name in argparse and tell it to keep \n for formatting
     parser = argparse.ArgumentParser(prog="D&D Encounter Generator", formatter_class=argparse.RawTextHelpFormatter)
 
-    # set valid valid_environments and valid_planes for the help command
+    # set valid valid_environments, valid_planes and valid_types for the help command
     valid_environments = [
         "Arctic", "Coastal", "Desert", "Forest", "Grassland", "Hill", 
         "Mountain", "Swamp", "Underdark", "Underwater", "Urban"
@@ -12,11 +12,15 @@ def parse_arguments():
     valid_planes = [
         "Feywild", "Shadowfell", "Ethereal Plane", "Air", "Earth", "Fire", "Water", "Upper Planes", "Neutral Planes", "Lower Planes", "Astral Plane"
     ]
+    valid_types = [
+        "Aberration", "Beast", "Celestial", "Construct", "Dragon", "Elemental", "Fey", "Fiend", "Giant", "Humanoid", "Monstrosity", "Ooze", "Plant", "Undead"
+    ]
 
     # loops through the valid_environments and makes them each go on a new line and add a dot for a cleaner look
-    # do the same thing for plane and difficulty
+    # do the same thing for plane and types
     env_options = "\n".join(f" • {env}" for env in valid_environments)
     plane_options = "\n".join(f" • {plane}" for plane in valid_planes)
+    type_options = "\n".join(f" • {type}" for type in valid_types)
 
     # the actual help text, with the env_options
     # do the same thing for planes
@@ -37,6 +41,7 @@ def parse_arguments():
     parser.add_argument('--level', type=int, help='Which level your party is. Default is 1 and max is 20', default=1)
     parser.add_argument('--size', type=int, help="What size your party is, default is 4 and max is 6. Going by Xanathar's Guide to Everything", default=4)
     parser.add_argument('--plane', type=lambda s: s.split(','), help=plane_help)
+    parser.add_argument('--type', type=str, help=type_options)
 
     # return the args
     return parser.parse_args()

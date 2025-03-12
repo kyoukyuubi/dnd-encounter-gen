@@ -31,6 +31,7 @@ def prepare_creatures(args):
     # set the arg values for env and plane
     environment = args.environment
     plane = args.plane
+    creature_type = (args.type).capitalize()
 
     # try to load all the creatures, print the error and return if it fails
     try:
@@ -40,22 +41,38 @@ def prepare_creatures(args):
         return
     
     #if environment and plane is none, return the loaded creatures since we don't need to do any checks on them here
-    if environment is None and plane is None:
+    if environment is None and plane is None and creature_type is None:
         return creatures
 
     # loop through the loaded creatures
     for creature in creatures:
         # check the creatures if environment has an element that matches and add the creature to the list
-        if environment is not None and plane is None:
+        if environment is not None and plane is None and creature_type is None:
             if does_element_match(creature["Environment"], environment):
                 creatures_sorted.append(creature)
         # check the creatures if plane has an element that matches and add the creature to the list
-        elif plane is not None and environment is None:
+        elif plane is not None and environment is None and creature_type is None:
             if does_element_match(creature["Plane"], plane):
                 creatures_sorted.append(creature)
+        # check if the creature type equals type and adds that creature to the list
+        elif creature_type is not None and environment is None and plane is None:
+            if creature["Type"] == creature_type:
+                creatures_sorted.append(creature)
+        # check if the creature type equals type and environment has an element that matches. Then adds that creature to the list
+        elif creature_type is not None and environment is not None and plane is None:
+            if does_element_match(creature["Environment"], environment) and creature["Type"] == creature_type:
+                creatures_sorted.append(creature)
+        # check if the creature type equals type and plane has an element that matches. Then adds that creature to the list
+        elif creature_type is not None and plane is not None and environment is None:
+            if does_element_match(creature["Plane"], plane) and creature["Type"] == creature_type:
+                creatures_sorted.append(creature)
         # check the creatures if environment and plane has an element that matches and add the creature to the list
+        elif plane is not None and environment is not None and creature_type is None:
+            if does_element_match(creature["Plane"], plane) and does_element_match(creature["Environment"], environment):
+                creatures_sorted.append(creature)
+        # check the creatures if environment and plane has an element that matches. and checks if creature_type equals the type. Then adds the creature to the list
         else:
-            if does_element_match(creature["Environment"], environment) and does_element_match(creature["Plane"], plane):
+            if does_element_match(creature["Environment"], environment) and does_element_match(creature["Plane"], plane) and creature["Type"] == creature_type:
                 creatures_sorted.append(creature)
 
     # return the list
