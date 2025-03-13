@@ -155,10 +155,12 @@ def display_encounter(encounter):
         print("note that for environment, plane, type and difficulty, capitalization doesn't matter")
         return
     
+    
+    print("Encounter Generated!")
+    print("------------------------------")
+
     # print the encounter with the desired formatting and information
     for key in encounter.keys():
-        print("Encounter Generated!")
-        print("------------------------------")
         print(f"Name: {key}")
         print(f"Amount: {encounter[key]['Amount']}")
         print(f"Challenge Rating: {encounter[key]['ChallengeRating']}")
