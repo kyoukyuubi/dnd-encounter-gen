@@ -82,7 +82,8 @@ def parse_arguments():
     parser.add_argument('--plane', type=lambda s: s.split(','), help=plane_help)
     parser.add_argument('--type', type=non_negative_int, help=type_help)
     parser.add_argument('--difficulty', type=str, help=difficulty_help, default="Moderate")
-    parser.add_argument('--min_exp', type=int, help="The minimun exp to look for when generating the list of creatures", default=10)
+    parser.add_argument('--min_exp', type=non_negative_int, help="The minimun exp to look for when generating the list of creatures. Leave blank for no limit",)
+    parser.add_argument('--max_creatures', type=non_negative_int, help='Max amount of creatures in encounter. Leave blank for not limit')
 
     # return the args
     return parser.parse_args()

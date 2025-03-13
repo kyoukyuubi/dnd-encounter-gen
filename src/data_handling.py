@@ -32,7 +32,7 @@ def prepare_creatures(args):
         return[]
     
     # If no filters provided, return all creatures
-    if all(getattr(args, attr) is None for attr in ['environment', 'plane', 'type']):
+    if all(getattr(args, attr) is None for attr in ['environment', 'plane', 'type', 'min_exp']):
         return creatures
 
     # Filter creatures based on provided criteria
@@ -72,7 +72,4 @@ def prepare_creatures(args):
 
     # Return the list
     return filtered_creatures
-
-def calc_creatures(creatures, args):
-    # set the dictionary that stores the difficulty and the base exp based on character level.
-    pass
+    
