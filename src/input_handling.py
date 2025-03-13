@@ -41,14 +41,14 @@ def parse_arguments():
 
     # Format how the help for Plane looks
     plane_help = (
-        "The Planes of existence(s), you wish to look for creatures in. (comma.separated). Leave empty for any\n"
+        "The Planes of existence(s), you wish to look for creatures in. (comma-separated). Leave empty for any\n"
         "Valid options:\n"
         f"{plane_options}"
     )
 
     # Format how the help for Type looks
     type_help = (
-        "Which type(s) of creature you are looking for. (comma.separated) Leave empty for any\n"
+        "Which type(s) of creature you are looking for. (comma-separated) Leave empty for any\n"
         "Valid options:\n"
         f"{type_options}"
     )
