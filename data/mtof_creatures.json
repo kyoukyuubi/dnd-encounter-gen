@@ -4,6 +4,7 @@
         "Name": "Leviathan",
         "Type": "Elemental",
         "ChallengeRating": "20",
+        "Exp": 25000,
         "Environment": ["Underwater", "Coastal"],
         "Plane": [],
         "Book": "Mordenkainen's Tome of Foes",
