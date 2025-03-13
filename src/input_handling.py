@@ -48,7 +48,7 @@ def parse_arguments():
 
     # Format how the help for Type looks
     type_help = (
-        "Which type of creature you are looking for. Leave empty for any\n"
+        "Which type(s) of creature you are looking for. (comma.separated) Leave empty for any\n"
         "Valid options:\n"
         f"{type_options}"
     )
@@ -80,7 +80,7 @@ def parse_arguments():
     parser.add_argument('--level', type=level_range, help='The level of your party. Default is 1 and max is 20', default=1)
     parser.add_argument('--size', type=non_negative_int, help="The size of the party to wish to generate an encounter for. Default is 4", default=4)
     parser.add_argument('--plane', type=lambda s: s.split(','), help=plane_help)
-    parser.add_argument('--type', type=non_negative_int, help=type_help)
+    parser.add_argument('--type', type=lambda s: s.split(','), help=type_help)
     parser.add_argument('--difficulty', type=str, help=difficulty_help, default="Moderate")
     parser.add_argument('--min_exp', type=non_negative_int, help="The minimun exp to look for when generating the list of creatures. Leave blank for no limit",)
     parser.add_argument('--max_creatures', type=non_negative_int, help='Max amount of creatures in encounter. Leave blank for not limit')

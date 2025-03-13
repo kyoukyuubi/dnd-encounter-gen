@@ -84,7 +84,7 @@ def generate_encounter(args, seed=None):
     }
 
     # Calculate the exp budget depending the the player level, party size and difficulty
-    budget = base_exp[args.difficulty][args.level] * args.size
+    budget = base_exp[args.difficulty.capitalize()][args.level] * args.size
 
     # copy the budget data into remaing_budget to avoid mutating
     remaining_budget = budget

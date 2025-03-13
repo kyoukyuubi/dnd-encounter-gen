@@ -56,7 +56,7 @@ def prepare_creatures(args):
 
         # Check type if specified
         if args.type is not None:
-             if creature["Type"] != args.type.capitalize():
+             if not does_element_match(creature["Type"], args.type):
                 matches = False
                 continue # Skip to the next creature
              
